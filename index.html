@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stock Prediction Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="container">
+        <h1>Stock Prediction Game</h1>
+        <p>Guess if the price will go up or down day by day.</p>
+    </header>
+
+    <main class="container">
+        <section class="controls">
+            <label for="ticker-input">Enter stock ticker:</label>
+            <input id="ticker-input" type="text" placeholder="e.g., MSFT" autocomplete="off" />
+            <button id="load-btn">Load</button>
+            <span id="status" class="status"></span>
+        </section>
+
+        <section class="game" id="game" hidden>
+            <div class="game-info">
+                <div>Symbol: <strong id="symbol"></strong></div>
+                <div>Current date: <strong id="current-date"></strong></div>
+                <div>Score: <strong id="score">0</strong></div>
+            </div>
+            <canvas id="chart" width="800" height="400"></canvas>
+            <div class="actions">
+                <button id="guess-up">Price Up</button>
+                <button id="guess-down">Price Down</button>
+                <button id="end-game" class="secondary">End Game</button>
+            </div>
+            <div id="feedback" class="feedback"></div>
+        </section>
+    </main>
+
+    <footer class="container small">
+        <p>Data from Alpha Vantage. Free API has rate limits; please be patient on errors.</p>
+    </footer>
+</body>
+</html>
