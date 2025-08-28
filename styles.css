@@ -1,0 +1,72 @@
+:root {
+  --bg: #0f1320;
+  --panel: #151a2e;
+  --text: #e6e8f0;
+  --muted: #9aa3b2;
+  --accent: #7c88ff;
+  --accent-2: #22c55e;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 800px at 10% -10%, #20263f, var(--bg));
+  color: var(--text);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+header h1 { margin: 0 0 8px 0; }
+header p { margin: 0; color: var(--muted); }
+
+.controls, .game, footer {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+label { color: var(--muted); }
+
+input[type="text"] {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+button {
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button.secondary { background: #3b405d; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status { color: var(--muted); margin-left: 4px; }
+
+.game { margin-top: 16px; }
+.game-info { display: flex; gap: 16px; margin-bottom: 12px; color: var(--muted); }
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+.feedback { margin-top: 8px; color: var(--muted); }
+
+footer.small { margin-top: 16px; color: var(--muted); font-size: 12px; }
