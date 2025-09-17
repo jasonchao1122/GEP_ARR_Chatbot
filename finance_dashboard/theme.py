@@ -1,8 +1,15 @@
 from __future__ import annotations
 
 from typing import Dict, List, Tuple
+from io import BytesIO
 
 from colorthief import ColorThief
+from PIL import Image
+
+try:
+    import fitz  # PyMuPDF
+except Exception:  # pragma: no cover - optional if PDF not needed
+    fitz = None  # type: ignore
 
 
 def _rgb_to_hex(rgb: Tuple[int, int, int]) -> str:
@@ -22,6 +29,49 @@ def extract_palette(file_obj, color_count: int = 6) -> List[str]:
     thief = ColorThief(file_obj)
     palette = thief.get_palette(color_count=color_count)
     return [_rgb_to_hex(c) for c in palette]
+
+
+def extract_palette_from_pil(image: Image.Image, color_count: int = 6) -> List[str]:
+    buf = BytesIO()
+    # Use JPEG to compress; fallback to PNG if RGBA
+    mode = image.mode
+    save_format = "PNG" if (mode == "RGBA" or mode == "LA") else "JPEG"
+    image.save(buf, format=save_format)
+    buf.seek(0)
+    return extract_palette(buf, color_count=color_count)
+
+
+def pdf_to_images(file_obj, max_pages: int = 4, zoom: float = 2.0) -> List[Image.Image]:
+    """Render first N pages of a PDF into PIL Images using PyMuPDF.
+
+    Returns empty list if PyMuPDF is unavailable.
+    """
+    if fitz is None:
+        return []
+    try:
+        # Read bytes and open via stream to avoid file system
+        try:
+            file_obj.seek(0)
+        except Exception:
+            pass
+        pdf_bytes = file_obj.read()
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+    except Exception:
+        return []
+
+    images: List[Image.Image] = []
+    try:
+        for i, page in enumerate(doc):
+            if i >= max_pages:
+                break
+            mat = fitz.Matrix(zoom, zoom)
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            mode = "RGBA" if pix.alpha else "RGB"
+            img = Image.frombytes(mode, (pix.width, pix.height), pix.samples)
+            images.append(img)
+    finally:
+        doc.close()
+    return images
 
 
 def get_default_theme() -> Dict[str, str]:
