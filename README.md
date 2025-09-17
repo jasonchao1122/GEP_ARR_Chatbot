@@ -8,6 +8,8 @@ A Streamlit dashboard that ingests Actuals and Plan CSVs, computes KPI variances
 - KPI totals and variance computation by period and metric
 - Plotly charts: Plan vs Actual trend, variance by metric, variance waterfall
 - Chat agent to explain results; requires `OPENAI_API_KEY`
+ - Upload a design slide image to auto-extract a color theme, then fine-tune via color pickers
+ - Optional column mapping UI for custom CSV schemas
 
 ## Quickstart
 

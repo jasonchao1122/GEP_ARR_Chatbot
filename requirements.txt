@@ -3,3 +3,5 @@ plotly==5.24.1
 streamlit==1.38.0
 openai==1.46.1
 numpy==2.1.1
+colorthief==0.2.1
+Pillow==10.4.0
