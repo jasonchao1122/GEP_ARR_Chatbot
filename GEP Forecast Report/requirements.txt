@@ -1,0 +1,19 @@
+# GEP Forecast Report Dependencies
+# Snowflake connector with Okta SSO support
+snowflake-connector-python[pandas]>=3.10.0
+
+# Data processing
+pandas>=2.1.4
+numpy>=1.26.3
+
+# Slack integration
+slack-sdk==3.27.1
+
+# Date/time handling
+python-dateutil==2.8.2
+
+# HTTP requests (for Slack API)
+requests==2.31.0
+
+# Environment variable management
+python-dotenv==1.0.0
