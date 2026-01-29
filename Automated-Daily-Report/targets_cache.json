@@ -1,0 +1,12 @@
+{
+  "month": "2026-01-01",
+  "forecast": 933,
+  "stretch": 1534,
+  "low": 987,
+  "last_updated": "2026-01-13T08:00:00",
+  "fetched_by": "AI - Fresh from Google Sheets",
+  "source_sheets": {
+    "forecast": "Latest Forecast (1Mq6UMgxhJFdjct3NRg57kKRi7Y-orboFMrQlGrliSfw)",
+    "stretch_and_low": "FY26 Targets (19bUdcBUkatQUWPijtHC5pc0wv1hsJce-zLkXM37t5Uk)"
+  }
+}

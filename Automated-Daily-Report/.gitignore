@@ -1,0 +1,16 @@
+# Data files (generated locally)
+latest_metrics.json
+cron.log
+
+# Environment files (contain secrets)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# OS
+.DS_Store
