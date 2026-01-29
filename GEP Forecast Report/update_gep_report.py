@@ -17,7 +17,7 @@ SNOWFLAKE_USER = os.getenv('SNOWFLAKE_USER', 'jason.chao@gusto.com')
 SNOWFLAKE_WAREHOUSE = os.getenv('SNOWFLAKE_WAREHOUSE', 'ANALYTICS_WH')
 SNOWFLAKE_DATABASE = os.getenv('SNOWFLAKE_DATABASE', 'ANALYTICS')
 SNOWFLAKE_SCHEMA = os.getenv('SNOWFLAKE_SCHEMA', 'GROWTH')
-SNOWFLAKE_ROLE = os.getenv('SNOWFLAKE_ROLE', 'ANALYTICS_ROLE')
+SNOWFLAKE_ROLE = os.getenv('SNOWFLAKE_ROLE', 'PUBLIC')
 
 
 def get_snowflake_connection() -> snowflake.connector.SnowflakeConnection:
