@@ -13,7 +13,7 @@ from typing import Optional, Dict, Any
 
 # Configuration
 SNOWFLAKE_ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT', 'gusto.us-west-2')
-SNOWFLAKE_USER = os.getenv('SNOWFLAKE_USER', 'YOUR_EMAIL@gusto.com')  # TODO: Update with your Gusto email
+SNOWFLAKE_USER = os.getenv('SNOWFLAKE_USER', 'jason.chao@gusto.com')
 SNOWFLAKE_WAREHOUSE = os.getenv('SNOWFLAKE_WAREHOUSE', 'ANALYTICS_WH')
 SNOWFLAKE_DATABASE = os.getenv('SNOWFLAKE_DATABASE', 'ANALYTICS')
 SNOWFLAKE_SCHEMA = os.getenv('SNOWFLAKE_SCHEMA', 'GROWTH')
